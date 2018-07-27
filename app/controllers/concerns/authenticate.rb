@@ -11,4 +11,8 @@ module Authenticate
     return if current_user
     json_response "Unauthorized User", false, {}, :unauthorized
   end
+
+  def authorized? user
+    current_user.id == user.id
+  end
 end
