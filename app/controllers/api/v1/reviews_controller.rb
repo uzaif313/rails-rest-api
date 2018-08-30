@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
   include Authenticate
   before_action :load_book, only: :index
-  before_action :load_review, only: :show
+  before_action :load_review, only: [:show, :update]
   before_action :authenticate_with_token!, only: :create
   def index
     @reviews = @book.reviews
@@ -22,6 +22,11 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def update
+    if authorized? @review.user
+      if @review
+    else
+      json_response 'Why you want to peep on other person review',false,{}, :unauthorized
+    end
   end
 
   def destroy

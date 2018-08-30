@@ -9,6 +9,8 @@ Rails.application.routes.draw do
         delete "log_out", to: "sessions#destroy"
       end
       post "facebook", to: "users#facebook"
+      resources :books, only: [:index, :show]
+      resources :reviews
     end
   end
 end
