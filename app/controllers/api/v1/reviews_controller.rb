@@ -3,52 +3,66 @@ class Api::V1::ReviewsController < ApplicationController
   before_action :load_book, only: :index
   before_action :load_review, only: [:show, :update]
   before_action :authenticate_with_token!, only: :create
+
   def index
     @reviews = @book.reviews
-    json_response "List of Reviews", true, { reviews: @reviews }, :ok
+    json_response "List of Reviews", true, {reviews: @reviews}, :ok
   end
 
   def show
-    json_response "Detail of Reviews", true,{ review: @review }, :ok
+    json_response "Detail of Reviews", true, {review: @review}, :ok
   end
 
   def create
     @review = current_user.reviews.build(permit_review_params)
     if @review.save
-      json_response "Book Save added", true, { review: @review }, :ok
-      else
-      json_response "Something goes wrong", false, { error:@review.errors }, :ok
+      json_response "Book Save added", true, {review: @review}, :ok
+    else
+      json_response "Something goes wrong", false, {error: @review.errors}, :ok
     end
   end
 
   def update
     if authorized? @review.user
-      if @review
+      if @review.update permit_review_params
+        json_response "Updated review successfully", true, {review: @review}, :ok
+      else
+        json_response "unable to update review", false, {}, :unproccessable_entity
+      end
     else
-      json_response 'Why you want to peep on other person review',false,{}, :unauthorized
+      json_response "Why you want to peep on other person review", false, {}, :unauthorized
     end
   end
 
   def destroy
+    if authorized? @review.user
+      if @review.destroy permit_review_params
+        json_response "destroy review successfully", true, {review: @review}, :ok
+      else
+        json_response "unable to destroy review", false, {}, :unproccessable_entity
+      end
+    else
+      json_response "Why you want to peep on other person review", false, {}, :unauthorized
+    end
   end
 
   private
 
-    def load_book
-      @book = Book.find_by(id:params[:id])
-      unless @book.present?
-        json_response "Unable to find book", false, {}, :not_found
-      end
+  def load_book
+    @book = Book.find_by(id: params[:id])
+    unless @book.present?
+      json_response "Unable to find book", false, {}, :not_found
     end
+  end
 
-    def load_review
-      @review = Review.find_by(id:params[:id])
-      unless @review.present?
-        json_response "Unable to find Reviews", false, {}, :not_found
-      end
+  def load_review
+    @review = Review.find_by(id: params[:id])
+    unless @review.present?
+      json_response "Unable to find Reviews", false, {}, :not_found
     end
+  end
 
-    def permit_review_params
-      params.require(:review).permit(:title, :content_rating, :recommend_rating, :book_id)
-    end
+  def permit_review_params
+    params.require(:review).permit(:title, :content_rating, :recommend_rating, :book_id)
+  end
 end
