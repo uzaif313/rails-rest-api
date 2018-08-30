@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
   include Authenticate
   before_action :load_book, only: [:index, :create, :update]
-  before_action :load_review, only: [:show, :update]
+  before_action :load_review, only: [:show, :update, :destroy]
   before_action :authenticate_with_token!, only: :create
 
   def index
@@ -37,7 +37,7 @@ class Api::V1::ReviewsController < ApplicationController
 
   def destroy
     if authorized? @review.user
-      if @review.destroy permit_review_params
+      if @review.destroy
         json_response "destroy review successfully", true, {review: @review}, :ok
       else
         json_response "unable to destroy review", false, {}, :unproccessable_entity
