@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :api, defaults:{format: :json} do
+  namespace :api, defaults: {format: :json} do
     namespace :v1 do
       devise_scope :user do
         post "sign_up", to: "registrations#create"
@@ -9,8 +9,9 @@ Rails.application.routes.draw do
         delete "log_out", to: "sessions#destroy"
       end
       post "facebook", to: "users#facebook"
-      resources :books, only: [:index, :show]
-      resources :reviews
+      resources :books, only: [:index, :show] do
+        resources :reviews, only: [:index, :show, :destroy, :update, :create]
+      end
     end
   end
 end

@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
   include Authenticate
-  before_action :load_book, only: :index
+  before_action :load_book, only: [:index, :create, :update]
   before_action :load_review, only: [:show, :update]
   before_action :authenticate_with_token!, only: :create
 
@@ -15,6 +15,7 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(permit_review_params)
+    @review.book = @book
     if @review.save
       json_response "Book Save added", true, {review: @review}, :ok
     else
@@ -49,7 +50,7 @@ class Api::V1::ReviewsController < ApplicationController
   private
 
   def load_book
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find_by(id: params[:book_id])
     unless @book.present?
       json_response "Unable to find book", false, {}, :not_found
     end
