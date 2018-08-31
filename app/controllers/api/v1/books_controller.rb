@@ -3,11 +3,11 @@ class Api::V1::BooksController < ApplicationController
 
   def index
     @books = Book.all
-    json_response "List Of Books",true, @books, :ok
+    json_response "List Of Books",true, serailie_json(@books), :ok
   end
 
   def show
-    json_response "Detail of Book", true, @book, :ok
+    json_response "Detail of Book", true, serailie_json(@book), :ok
   end
 
   private
