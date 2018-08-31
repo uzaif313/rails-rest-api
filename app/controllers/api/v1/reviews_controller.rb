@@ -6,18 +6,18 @@ class Api::V1::ReviewsController < ApplicationController
 
   def index
     @reviews = @book.reviews
-    json_response "List of Reviews", true, {reviews: @reviews}, :ok
+    json_response "List of Reviews", true, {reviews: serailie_json(@reviews)}, :ok
   end
 
   def show
-    json_response "Detail of Reviews", true, {review: @review}, :ok
+    json_response "Detail of Reviews", true, {review: serailie_json(@review)}, :ok
   end
 
   def create
     @review = current_user.reviews.build(permit_review_params)
     @review.book = @book
     if @review.save
-      json_response "Book Save added", true, {review: @review}, :ok
+      json_response "Book Save added", true, {review: serailie_json(@review)}, :ok
     else
       json_response "Something goes wrong", false, {error: @review.errors}, :ok
     end
@@ -26,7 +26,7 @@ class Api::V1::ReviewsController < ApplicationController
   def update
     if authorized? @review.user
       if @review.update permit_review_params
-        json_response "Updated review successfully", true, {review: @review}, :ok
+        json_response "Updated review successfully", true, {review: serailie_json(@review)}, :ok
       else
         json_response "unable to update review", false, {}, :unproccessable_entity
       end
@@ -38,7 +38,7 @@ class Api::V1::ReviewsController < ApplicationController
   def destroy
     if authorized? @review.user
       if @review.destroy
-        json_response "destroy review successfully", true, {review: @review}, :ok
+        json_response "destroy review successfully", true, {review: serailie_json(@review)}, :ok
       else
         json_response "unable to destroy review", false, {}, :unproccessable_entity
       end
