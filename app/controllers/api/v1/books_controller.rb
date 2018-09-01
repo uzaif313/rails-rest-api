@@ -2,7 +2,7 @@ class Api::V1::BooksController < ApplicationController
   before_action :load_book, only: :show
 
   def index
-    @books = Book.all
+    @books = Book.all.includes(:reviews)
     json_response "List Of Books",true, serailie_json(@books), :ok
   end
 
