@@ -1,0 +1,344 @@
+{
+	"id": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+	"name": "rest-api",
+	"description": "",
+	"order": [
+		"2571fd05-d1a8-fa39-ac20-ab072a682349",
+		"9115120f-eb0a-5fa9-5b11-39545d747135",
+		"b21e716a-ef94-4581-fa5f-6622a6bf85b9",
+		"026b3f60-6423-41be-5e9d-08a859fa308a",
+		"8bc0e664-e8b5-0339-138c-77ec4bde88d7",
+		"8145de6e-1eb1-abbb-61e3-bd4c20357ed9",
+		"1c47b2d2-dd3a-d227-9bcc-fe3b530e01fe",
+		"38bec283-45fa-9a24-3631-852b0eb7048e",
+		"64992e51-e815-0c34-797f-1c5b1b218e94",
+		"620726f3-f590-75f9-27e8-ccbe4c12e86c"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1531911978244,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "026b3f60-6423-41be-5e9d-08a859fa308a",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: CddNCDnoq-p1GUQToTjB\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "CddNCDnoq-p1GUQToTjB",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/books",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1532439765399,
+			"name": "books",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "1c47b2d2-dd3a-d227-9bcc-fe3b530e01fe",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:3002/api/v1/books/1/reviews/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"data": null,
+			"dataMode": "params",
+			"name": "list reviews",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1535635963117,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "2571fd05-d1a8-fa39-ac20-ab072a682349",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/sign_up",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531913350852,
+			"name": "signup",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":{\n\t\t\t\t\"email\":\"dev12@gmail.com\",\n\t\t\t\t\"password\":\"123456\",\n\t\t\t\t\"password_confirmation\":\"123456\"\t\t\n\t}\n\n}"
+		},
+		{
+			"id": "38bec283-45fa-9a24-3631-852b0eb7048e",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:3002/api/v1/books/1/reviews/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535635983527,
+			"name": "show reviews",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": []
+		},
+		{
+			"id": "620726f3-f590-75f9-27e8-ccbe4c12e86c",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: ZAKooHk4ptfynSmsEGsJvSBH\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "ZAKooHk4ptfynSmsEGsJvSBH",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/books/1/reviews/2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535636926152,
+			"name": "destroy review",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "64992e51-e815-0c34-797f-1c5b1b218e94",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: ZAKooHk4ptfynSmsEGsJvSBH\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "ZAKooHk4ptfynSmsEGsJvSBH",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/books/1/reviews/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535636831537,
+			"name": "update review",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": "{\n\t\n\t\"review\":{\n\t\t\"title\": \"Awsome book awsome\",\n\t\t\"content_rating\": \"51\",\n\t\t\"recommend_rating\": \"5\"\n\t}\n}"
+		},
+		{
+			"id": "8145de6e-1eb1-abbb-61e3-bd4c20357ed9",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: ajChT1z1QuzQZye5a7pm\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "ajChT1z1QuzQZye5a7pm",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/reviews",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535635177918,
+			"name": "create review",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": "{\n\t\n\t\"review\":{\n\t\t\"title\": \"Awsome Book\",\n\t\t\"book_id\": \"1\",\n\t\t\"content_rating\": \"5\",\n\t\t\"recommend_rating\": \"3\"\n\t}\n}"
+		},
+		{
+			"id": "8bc0e664-e8b5-0339-138c-77ec4bde88d7",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: CddNCDnoq-p1GUQToTjB\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "CddNCDnoq-p1GUQToTjB",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/books/20",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535635179719,
+			"name": "book",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "9115120f-eb0a-5fa9-5b11-39545d747135",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/sign_in",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535635153593,
+			"name": "signin",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":{\n\t\t\t\t\"email\":\"dev12@gmail.com\",\n\t\t\t\t\"password\":\"123456\"\n\t\t\t\n\t}\n\n}"
+		},
+		{
+			"id": "b21e716a-ef94-4581-fa5f-6622a6bf85b9",
+			"headers": "Content-Type: application/json\nAUTH-TOKEN: QMy3Pn2nyHo8s1QayxWSmPYW\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "AUTH-TOKEN",
+					"value": "QMy3Pn2nyHo8s1QayxWSmPYW",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:3002/api/v1/log_out",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1535635181471,
+			"name": "signout",
+			"description": "",
+			"collectionId": "d17292ec-421f-0e6f-b9d9-73d68885cabc",
+			"responses": [],
+			"rawModeData": ""
+		}
+	]
+}
