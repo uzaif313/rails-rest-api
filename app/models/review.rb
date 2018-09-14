@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  has_one_attached :image
   before_save :calculate_average_rating
   belongs_to :user
   belongs_to :book
