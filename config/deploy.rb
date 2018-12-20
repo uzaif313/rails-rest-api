@@ -6,8 +6,12 @@ set :repo_url, "git@github.com:uzaif313/rails-rest-api.git"
 
 set :branch, "deploy-cab"
 set :deploy_to, '/home/deploy/workspace'
-set :pem_file,        %W(demo_cap.pem)
 set :pty, true
+set :ssh_options, {
+  forward_agent: true,
+  auth_methods: %w[publickey],
+  keys: %w[demo_cap.pem]
+}
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
