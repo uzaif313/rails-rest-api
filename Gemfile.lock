@@ -77,6 +77,10 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.0.5)
@@ -212,6 +216,7 @@ DEPENDENCIES
   capistrano (~> 3.6)
   capistrano-rails (~> 1.1)
   capistrano-rvm
+  capistrano3-puma
   counter_culture (~> 2.0)
   devise
   faker
