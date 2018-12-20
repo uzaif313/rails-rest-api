@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :application, "rest_api"
 set :repo_url, "git@github.com:uzaif313/rails-rest-api.git"
 
-set :branch, :master
+set :branch, "deploy-cab"
 set :deploy_to, '/home/deploy/workspace'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
